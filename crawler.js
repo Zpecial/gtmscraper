@@ -3,7 +3,7 @@ var cheerio = require('cheerio');
 var URL = require('url-parse');
 
 var START_URL = "https://www.silverbean.com/";
-var SEARCH_WORD = "agency";
+var SEARCH_WORD = "WT3R6Z";
 var MAX_PAGES_TO_VISIT = 10;
 
 var pagesVisited = {};
@@ -56,10 +56,16 @@ function visitPage(url, callback) {
      }
   });
 }
-
+/*
 function searchForWord($, word) {
   var headText = $('html > head').text().toLowerCase();
+  console.log(headText);
   return(headText.indexOf(word.toLowerCase()) !== -1);
+}
+*/
+function searchForWord($, word) {
+  var headText = $('html > head').html();
+  return(headText.indexOf(word !== -1));
 }
 
 function collectInternalLinks($) {
